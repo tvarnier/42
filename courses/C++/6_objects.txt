@@ -1,0 +1,121 @@
+		[[ OBJECTS ]]
+
+""" NameClass.h """
+#ifndef DEF_NAME_CLASS
+#define DEF_NAME_CLASS
+
+Class NameClass[ : public HeritageClass]
+{
+	public :
+		NameClass();                        // Constructor
+		NameClass(ARG);                     // Overload Constructor
+		NameClass(NameClass const& OTHER);  // Copy Constructor
+
+		[virtual] TYPE FUNCTION(ARG);       // virtual is for Polymorphism
+
+		static TYPE FUNCTION_STATIQUE(ARG); // Static function
+
+		TYPE GET_ATTRIBUTE() const;         // Return attribute (Getter)
+		void SET_ATTRIBUTE(ARG) const;      // Modify attribute (Setter)
+
+		static TYPE GET_STATIC_ATTRIBUTE(); // Get static attribute
+
+		NameClass& operator+=(NameClass const& a);
+				   operator-=
+				   operator*=
+				   operator/=
+				   operator%=
+				   operator=
+
+		NameClass* getAdress() const;
+
+		~NameClass();                       // Destructor
+
+	private :
+	[protected :]
+		TYPE m_attribute;
+		static TYPE static_attribute;
+
+	friend TYPE FUNCTION_FRIEND(ARG);       // Function with an access to private class' elements
+}
+
+bool operator==(NameClass const& a, NameClass const& b);
+	 operator!=
+	 operator<
+	 operator>
+	 operator<=
+	 operator>=
+
+NameClass operator+(NameClass const& a, NameClass const& b);
+		  operator-
+		  operator*
+		  operator/
+		  operator%
+
+ostream& operator<<(ostream& FLUX, NameClass const& a);
+istream& operator>>(istream& FLUX, NameClass const& a);
+
+#endif
+"""
+
+""" NameClass.cpp """
+#include "NameClass.h"
+
+TYPE NameClass::static_attribute = Value; // Init static attribute
+
+NameClass::NameClass() : [HeritageClass(ARG), ]m_attribute(VALUE), m_attribute2(VALUE) // Constructor
+{}
+NameClass::NameClass(ARG) : [HeritageClass(ARG), ]m_attribute(ARG)                     // Overload Constructor
+{}
+NameClass::NameClass(NameClass const& OTHER) : m_attribute(OTHER.m_attribute)          // Copy Constructor
+{}
+
+TYPE NameClass::FUNCTION(ARG)
+{}
+
+TYPE NameClass::FUNCTION_STATIQUE(arg) // Can access the non-static class' elements
+{}
+
+TYPE GET_ATTRIBUTE() const // Return attribute (Getter)
+{}
+void SET_ATTRIBUTE(ARG)    // Modify attribute (Setter)
+{}
+
+TYPE NameClass::GET_STATIC_ATTRIBUTE()
+{}
+
+NameClass& NameClass::operator+=(const NameClass& a)
+{
+	m_attribute += a.m_attribute
+	return *this;
+}
+
+NameClass* NameClass::getAdress() const
+{
+	return this;
+}
+
+NameClass::~NameClass() // Destructor
+{}
+
+bool operator==(NameClass const& a, NameClass const& b)
+{}
+
+NameClass operator+(NameClass const& a, NameClass const& b)
+{
+	NameClass res;
+	// Change attributes of res
+	return res;
+}
+
+ostream& operator<<(ostream& FLUX, NameClass const& a)
+{
+	FLUX << (afficher);
+	return FLUX;
+}
+"""
+
+HeritageClass::METHOD() // Access to mother's method
+
+virtual TYPE FUNCTION(ARG) = 0 // Declare pure virtual function
+							   // The class is now abstract

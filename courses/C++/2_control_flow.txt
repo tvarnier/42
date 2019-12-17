@@ -1,0 +1,28 @@
+		[[ CONTROL FLOW ]]
+
+if (CONDITION)
+{}
+else if (CONDITION)
+{}
+else
+{}
+
+switch (VARIABLE)
+{
+	case VALUE :
+		break ;
+	case VALUE :
+		break ;
+	default :
+		break ;
+}
+
+while (CONDITION)
+{}
+
+do
+{}
+while(CONDITION);
+
+for (INITIALIZATION ; CONDITION ; INCREMENTATION)
+{}

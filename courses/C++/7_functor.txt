@@ -1,0 +1,55 @@
+		[[ FUNCTOR ]]
+
+Functions with memory
+
+"""
+Class NameFonctor
+{
+	public :
+		NameFonctor(ARG)
+			: m_attribute(ARG)
+		{}
+
+		TYPE operator()(ARG)
+		{}
+
+	private :
+		m_attribute
+}
+"""
+
+""" Predicat """
+class Predicat
+{
+	public :
+		bool operator()(OBJ const& arg) const
+		{
+			switch (arg)
+			{
+				case 1 :
+				case 2 :
+					return true;
+				default :
+					break ;
+			}
+			return false;
+		}
+}
+"""
+
+We can use functors to sort map
+map<TYPE_KEY, TYPE, FONCTOR> NAME;
+
+		[[ ALGORITHM ]]
+
+<algorithm>
+
+generate(ITERATOR_BEGIN, ITERATOR_END, FONCTEUR)    // Call functor on included elements
+count(ITERATOR_BEGIN, ITERATOR_END, SEARCH_ELEMENT) // Count number of element equal to SEARCH_ELEMENT
+count_if(ITERATOR_BEGIN, ITERATOR_END, PREDICAT)    // Count number of elements corresponding to PREDICAT
+find(ITERATOR_BEGIN, ITERATOR_END, SEARCH_ELEMENT)  // Return iterator to element equal to SEARCH_ELEMENT
+find_if(ITERATOR_BEGIN, ITERATOR_END, PREDICAT)     // Return iterator to element corresponding to PREDICAT
+min_element()                                       // Search smallest element
+max_element()                                       // Search greatest element
+sort(ITERATOR_BEGIN, ITERATOR_END[, FUNCTOR])       // Sort with FUNCTOR
+for_each(ITERATOR_BEGIN, ITERATOR_END, FUNCTOR)     // Apply FUNVTOR to included elements

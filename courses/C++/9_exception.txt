@@ -1,0 +1,53 @@
+        [[ EXCEPTION ]]
+
+try // Isolate sensitive code
+{
+    if (ERROR)
+        throw VALUE // Create ERROR
+        or throw TYPE(VALUE)
+}
+catch (TYPE const& NAME)
+{
+    // Manage exception
+    throw; // You can rethrow the exception
+}
+
+Create your own exception class with exception's heritage
+
+""" exception """
+class exception 
+{
+public:
+    exception() throw(){ } //Constructor
+    virtual  exception() throw(); //Destructor
+ 
+    virtual const char* what() const throw(); // Send string describing the exception
+};
+"""
+
+== Default Exceptions ==
+
+bad_alloc         // Memory error
+bad_cast          // dynamic_cast error
+bad_exception     // If no catch correspond to the throwed object
+bad_typeid        // typeid error
+ios_base::failure // Flux error
+
+<stdexcept>
+
+domain_error     // Mathematics domain error
+invalid_argument // Invalid argument to function
+length_error     // Invalid length
+out_of_range     // Index error
+logic_error      // Logical error
+range_error      // Domain error
+overflow_error   // Overflow error
+underflow_error  // Underflow error
+runtime_error    // Other type error
+
+        [[ ASSERTION ]]
+
+<cassert>
+
+assert(CONDITION) // Shut down the program if true
+                  // and write an error message 

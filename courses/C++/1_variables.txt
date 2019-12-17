@@ -1,0 +1,13 @@
+		[[ VARIABLES ]]
+
+bool - char - int - unsigned int - double - string
+TYPE VAR(VALUE) or TYPE VAR // Declaration
+
+TYPE& VAR(VARIABLE) // Reference
+
+TYPE const VAR(VALUE) // Constants
+
+		[[ ALLOCATION ]]
+
+POINTER = new TYPE // Alloc memory
+del POINTER        // Free memory

@@ -1,0 +1,29 @@
+		[[ FUNCTIONS ]]
+
+TYPE FUNCTION(TYPE ARG)
+TYPE FUNCTION(TYPE& ARG)
+TYPE FUNCTION(TYPE const& ARG)
+
+// Default arguments
+TYPE FUNCTION(TYPE ARG = VALUE)
+
+		[[ TEMPLATES ]]
+
+This must be written in the '.h'
+
+template <typename T, typename S>
+NAME FUNCTION(const T& a, const T& b)
+{
+	S NAME(VALUE); // Addapt return TYPE
+
+	return NAME
+}
+
+FUNCTION<TYPE, TYPE>(ARG, ARG); // Call the function
+
+-- SPECIALIZATION --
+
+// Overload template
+template <>
+TYPE maximum<TYPE>(const TYPE& a, const TYPE& b)
+{}

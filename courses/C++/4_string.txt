@@ -1,0 +1,17 @@
+		[[ STRING ]]
+
+STRING.size()                      // Get string size
+STRING.erase()                     // Erase string content
+STRING.substr(<INDEX>[, <LENGTH>]) // Extract part of a string
+STRING.c_str()                     // Return pointer to the char arrray
+STRING.begin()                     // Get Iterator on first character
+STRING.end()                       // Get Iterator on last character
+
+		[[ FLUX ]]
+
+ostringstream FLUX                    // Flux to write in a string
+	-> FLUX << VALUE;                 // Write VALUE on the flux
+	-> string const NAME = FLUX.str() // Insert in the string
+
+istringstream FLUX // Flux to read from a string
+
