@@ -21,3 +21,9 @@
 ### OTHERS
 
  * **[libft](https://github.com/tvarnier/42/tree/master/libft)** | C | *Re-code several functions of the standard C library*
+
+#
+
+### LANGAGES
+
+ * **[C++](https://github.com/tvarnier/42/tree/master/courses/C%2B%2B)** | *C++ course notes*
