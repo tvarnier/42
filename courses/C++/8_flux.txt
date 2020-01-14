@@ -1,4 +1,4 @@
-		[[ AFFICHAGE ]]
+		[[ DISPLAY ]]
 
 cout >> // Display
 cin <<  // Read
