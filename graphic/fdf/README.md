@@ -1,4 +1,4 @@
-# FDF
+# FDF [[Sujet](https://github.com/tvarnier/42/blob/master/graphic/fdf/subject.pdf)]
 
 <br>
 
@@ -26,13 +26,13 @@ Lancer la commande `make` pour compiler le projet.
 Il suffit ensuite de lancer la commande `./fdf <map>` (vous trouverez des maps dans le dossier `maps`)
 
 Une fois lancer vous aurez accès aux événements suivants:
- * **[a w d s]** ou **[◀ ▲ ▶ ▼]** -> Deplacer la map
- * **[molette]** -> Gérer le zoom
- * **[p]** -> Changer de perspective
- * **[+] [-]** -> Accentuer ou Atténuer les reliefs
- * **[f]** -> Gérer le remplissage des faces
- * **[r]** -> Reset la position, l'angle et le zoom de la map
- * **[Maintenir Left Click]** -> Rotation sur l'axe Z
+ * **[a w d s]** ou **[◀ ▲ ▶ ▼]** => Deplacer la map
+ * **[molette]** => Gérer le zoom
+ * **[p]** => Changer de perspective
+ * **[+] [-]** => Accentuer ou Atténuer les reliefs
+ * **[f]** => Gérer le remplissage des faces
+ * **[r]** => Reset la position, l'angle et le zoom de la map
+ * **[Maintenir Left Click]** => Rotation sur l'axe Z
 
 <br>
 
