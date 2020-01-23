@@ -33,6 +33,7 @@ Une fois lancer vous aurez accès aux événements suivants:
  * **[f]** => Gérer le remplissage des faces
  * **[r]** => Reset la position, l'angle et le zoom de la map
  * **[Maintenir Left Click]** => Rotation sur l'axe Z
+ * **[ESC]** => Quitter le programme
 
 <br>
 
