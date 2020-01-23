@@ -6,7 +6,7 @@
 #    By: tvarnier <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/18 02:13:52 by tvarnier     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/13 18:02:04 by tvarnier    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/23 19:27:14 by tvarnier    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,6 +14,9 @@
 CC = gcc
 
 NAME = libftprintf.a
+
+TEST = test
+TEST_FILE = main_test.c
 
 SRCS =	srcs/ft_printf.c \
 		srcs/ft_get_fct.c \
@@ -60,6 +63,9 @@ $(NAME): $(LIB) $(OBJ)
 	cp libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJ) $(LIB)
 
+test: $(TEST_FILE)
+	gcc $(FLAGS) $(TEST_FILE) $(NAME) -o $(TEST)
+
 %.o: %.c
 	$(CC) -I includes/ -o $@ -c $< $(FLAGS)
 
@@ -69,6 +75,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm $(TEST)
 	rm -rf $(LIB)
 
 re: fclean all
