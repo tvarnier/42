@@ -26,11 +26,10 @@ Il suffit ensuite de lancer la commande `./minishell`
 
 <br>
 
-## EXEMPLE
+## EXEMPLE D'UTILSATION
 
 <br>
 
-<div>
-  <img src="https://github.com/tvarnier/42/blob/master/graphic/fdf/img/pylone.png">
-  <p align="center" font-size="x-small"><i>Map "polynome"</i></p>
+<div width="75%">
+  <img src="https://github.com/tvarnier/42/blob/master/system/minishell/img/example.png" width="75%">
 </div>
