@@ -26,7 +26,7 @@ Il suffit ensuite de lancer la commande `./minishell`
 
 <br>
 
-## EXEMPLE
+## EXEMPLE D'UTILSATION
 
 <br>
 
