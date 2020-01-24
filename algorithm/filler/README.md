@@ -20,16 +20,15 @@ Chaque pièce posée avec succès rapporte un certain nombre de points, et a un 
 
 Lancer la commande `make` pour compiler le projet.
 
-Il suffit ensuite de lancer la commande :
-
+Il suffit ensuite de lancer la commande : <br>
 `./resources/filler_vm -f <map> -p1 <player> -p2 <player> | ./tvarnier.vm`
  * `<map>` dans le sous-dossier `./resources/maps`
  * `<player>` dans le sous-dossier `./resources/players`, mon player est à la racine `./tvarnier.filler`
 
 <br>
 
-Exemple de commande complète :
-> ./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./tvarnier.filler | ./tvarnier.vm
+Exemple de commande complète : <br>
+`./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./tvarnier.filler | ./tvarnier.vm`
 
 <br>
 
