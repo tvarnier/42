@@ -14,7 +14,7 @@ La versatilité de la fonction printf en C représente pour nous un excellent ex
 
 Lancer la commande `make` pour compiler le projet.
 
-Puis modifiez les arguments de de la fonction printf dans le fichier `main_test.c` et compilez le grâce à la commande `make test`.
+Puis modifiez les arguments de de la fonction ft_printf dans le fichier `main_test.c` et compilez le grâce à la commande `make test`.
 
 <div>
   <img src="https://github.com/tvarnier/42/blob/master/algorithm/ft_printf/img/main_example.png" align="middle" width="75%">
@@ -58,22 +58,11 @@ Gestion des conversions suivantes :
  
 <br>
 
-Gestion des modificateurs de longueur suivantes :
- * `j`
- * `h`
- * `hh`
- * `l`
- * `ll`
- * `L`
- * `z`
+Gestion des modificateurs de longueur suivants : `j`, `h`, `hh`, `l`, `ll`, `L`, `z`
  
 <br>
 
-Gestion des flags suivants :
- * `#`
- * `0`
- * `-`
- * `+`
+Gestion des flags suivants : `#`, `0`, `-`, `+`
  
 <br>
 
