@@ -30,6 +30,8 @@ Il suffit ensuite de lancer la commande :
 
 Exemple de commande complète :
 
-`./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./tvarnier.filler | ./tvarnier.vm`
+<p font-size="x-small">`./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./tvarnier.filler | ./tvarnier.vm`<p>
+
+<br>
 
 *N'hésitez pas à dezoomer votre terminal sur certaines maps*
