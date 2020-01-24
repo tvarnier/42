@@ -29,8 +29,7 @@ Il suffit ensuite de lancer la commande :
 <br>
 
 Exemple de commande complète :
-
-<p font-size="x-small">`./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./tvarnier.filler | ./tvarnier.vm`<p>
+> ./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./tvarnier.filler | ./tvarnier.vm
 
 <br>
 
