@@ -12,7 +12,7 @@ Le but de ce sujet est de coder un programme qui résout des équations simples.
 
 Lancer la commande `make` pour compiler le projet.
 
-Il suffit ensuite de lancer commande `./computor [-v] <equation>`
+Il suffit ensuite de lancer commande `./computor [-v] <equation>` (L'option `-v` permet d'afficher les étapes intermédiaires)
 
  * L'option `-v` permet d'afficher les étapes intermédiaires
 
