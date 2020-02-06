@@ -30,40 +30,40 @@ Il vous suffit ensuite de lancer le programme `./test`.
 
 <br>
 
-Gestion des conversions suivantes :
- * `b` | *unsigned long long (binaire)*
- * `c` | *unsigned char*
- * `C` | *wchar_t (unicode)*
- * `d` | *int*
- * `D` | *long long integer*
- * `e` | *double (forme scientifique)*
- * `E` | *long double (forme scientifique)*
- * `f` | *double*
- * `F` | *long double*
- * `g` | *double (conversion `f` ou `e` en fonction de l'exposant)*
- * `G` | *long double (conversion `F` ou `E` en fonction de l'exposant)*
- * `i` | *int*
- * `k` | *long (date)*
- * `o` | *unsigned int (octal)*
- * `O` | *unsigned long long int (octal)*
- * `p` | *void \* en hexadecimal (adresse)*
- * `r` | *char \* (chaîne de caractère non imprimable)*
- * `s` | *char \* (string)*
- * `S` | *wchar_t \* (unicode string)*
- * `t` | *long (heure)*
- * `u` | *unsigned int*
- * `U` | *unsigned long long int*
- * `x` | *unsigned int (hexadecimal)*
- * `X` | *unsigned long long int (hexadecimal)*
+* Gestion des conversions suivantes :
+    * `b` | *unsigned long long (binaire)*
+    * `c` | *unsigned char*
+    * `C` | *wchar_t (unicode)*
+    * `d` | *int*
+    * `D` | *long long integer*
+    * `e` | *double (forme scientifique)*
+    * `E` | *long double (forme scientifique)*
+    * `f` | *double*
+    * `F` | *long double*
+    * `g` | *double (conversion `f` ou `e` en fonction de l'exposant)*
+    * `G` | *long double (conversion `F` ou `E` en fonction de l'exposant)*
+    * `i` | *int*
+    * `k` | *long (date)*
+    * `o` | *unsigned int (octal)*
+    * `O` | *unsigned long long int (octal)*
+    * `p` | *void \* en hexadecimal (adresse)*
+    * `r` | *char \* (chaîne de caractère non imprimable)*
+    * `s` | *char \* (string)*
+    * `S` | *wchar_t \* (unicode string)*
+    * `t` | *long (heure)*
+    * `u` | *unsigned int*
+    * `U` | *unsigned long long int*
+    * `x` | *unsigned int (hexadecimal)*
+    * `X` | *unsigned long long int (hexadecimal)*
  
 <br>
 
-Gestion des modificateurs de longueur suivants : `j`, `h`, `hh`, `l`, `ll`, `L`, `z`
+* Gestion des modificateurs de longueur suivants : `j`, `h`, `hh`, `l`, `ll`, `L`, `z`
  
 <br>
 
-Gestion des flags suivants : `#`, `0`, `-`, `+`
+* Gestion des flags suivants : `#`, `0`, `-`, `+`
  
 <br>
 
-Gestion de la précision
+* Gestion de la précision
