@@ -10,7 +10,9 @@ SRC			= main.cpp
 
 OBJ			= State/State.cpp \
 			  Puzzle/Puzzle.cpp \
+			  Puzzle/Puzzle_parseOptions.cpp \
 			  Puzzle/Puzzle_init.cpp \
+			  Puzzle/Puzzle_generate_start_array.cpp \
 			  Puzzle/Puzzle_isSolvable.cpp \
 			  Puzzle/Puzzle_solve.cpp
 OBJ_DIR		= objects/

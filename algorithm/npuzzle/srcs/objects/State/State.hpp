@@ -26,9 +26,8 @@ class State
 		void	setZeroPosition(const int& zero_position);
 
 		int		getScore() const;
-		void	setScore(const int& score);
-		void	setScoreManhattan(const int *goal);
-;
+		void	setScore(const int *goal, const e_heuristic& h = H_MANHATTAN, const e_algorithm& a = A_STAR);
+
 		int		getNbrMoves() const;
 		void	setNbrMoves(const int& nbr_moves);
 
@@ -54,6 +53,12 @@ class State
 
 		std::string		array_to_string() const;
 		size_t			hashArray();
+
+		// ----- Heuristic ----- //
+
+		int		scoreManhattan(const int *goal);
+		int		scoreEuclidean(const int *goal);
+		int		scoreMisplaced(const int *goal);
 };
 
 bool	operator==(const State& a, const State& b);

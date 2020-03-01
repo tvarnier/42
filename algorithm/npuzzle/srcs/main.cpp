@@ -1,15 +1,16 @@
 #include "npuzzle.hpp"
 
-bool compare::operator() (State *a, State *b) const
-{
-    return (*a < *b);
-}
-
-int		main(void)
+int		main(int ac, char **av)
 {
 	Puzzle	puzzle;
 
 	lib::printendl("===========================================");
+
+	if (puzzle.parseOptions(ac, av))
+		return (1);
+
+	/*puzzle.setAlgorithm(A_STAR);
+	puzzle.setHeuristic(H_MANHATTAN);*/
 
 	if (puzzle.init())
 		return (1);
@@ -31,7 +32,7 @@ int		main(void)
 	if (puzzle.isSolvable())
 	{
 		lib::printendl(GREEN, "SOLVABLE");
-		//puzzle.solve();
+		puzzle.solve();
 	}
 	else
 		lib::printendl(RED, "NOT SOLVABLE");

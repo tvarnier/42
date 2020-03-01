@@ -39,6 +39,12 @@ static int  inversion_number(const int *start, const int *goal)
 
 bool    Puzzle::isSolvable()
 {
+    if (m_infos.initalize == false)
+    {
+        lib::printerr(RED, "ERROR : The puzzle isn't initialize");
+        return (0);
+    }
+
     if (State::length % 2 == 1)
     {
         if (inversion_number(m_start->getArray(), m_goal->getArray()) % 2 == 0)

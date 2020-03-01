@@ -64,6 +64,8 @@
         "thread": "cpp",
         "map": "cpp",
         "regex": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "list": "cpp",
+        "fstream": "cpp"
     }
 }

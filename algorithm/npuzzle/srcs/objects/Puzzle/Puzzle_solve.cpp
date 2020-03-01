@@ -12,14 +12,14 @@ struct isEqual
     }
 };
 
-static State    *generate_child(const State *current, int direction, const int *goal)
+static State    *generate_child(const State *current, int direction, const int *goal, const e_heuristic& heuristic, const e_algorithm& algorithm)
 {
     State   *child = new State(*current);
 
     child->swapZeroPosition(direction);
     child->setNbrMoves(current->getNbrMoves() + 1);
     child->setHash();
-    child->setScoreManhattan(goal);
+    child->setScore(goal, heuristic, algorithm);
     child->setParent((State*)current);
 
     return (child);
@@ -31,7 +31,7 @@ int     Puzzle::manage_sucessors(const State *current, int direction)
     std::set<State*, compare>::iterator             it_queue;
     State                                           *child;
 
-    child = generate_child(current, direction, m_goal->getArray());
+    child = generate_child(current, direction, m_goal->getArray(), m_options.heuristic, m_options.algorithm);
 
     if ((it = m_list.find(child->getHash())) == m_list.end())
     {
@@ -71,28 +71,62 @@ int     Puzzle::generate_successors(const State *current)
     return (0);
 }
 
+static void generate_steps(State *current, std::list<State*>& steps, int& number_steps)
+{
+    State   *tmp;
+
+    tmp  = current;
+
+    while (tmp != nullptr)
+    {
+        steps.push_front(tmp);
+        tmp = tmp->getParent();
+    }
+    number_steps = steps.size() - 1;
+}
+
+void print_steps(std::list<State*>& step)
+{
+    std::list<State*>::iterator it(step.begin());
+    std::list<State*>::iterator end(step.end());
+
+    while (it != end)
+    {
+        lib::printendl("=========================");
+        (*it)->print();
+        ++it;
+    }
+}
+
 int         Puzzle::solve()
 {
     State   *current;
-    int     c(0);
+
+    if (m_infos.initalize == false)
+        return (lib::printerr(RED, "ERROR : The puzzle isn't initialize"));
 
     m_queue.insert(new State(*m_start));
     m_list[m_start->getHash()] = *(m_queue.begin());
     while (!m_queue.empty())
     {
-        c++;
+        ++m_infos.state_selected;
         current = *(m_queue.begin());
         m_queue.erase(m_queue.begin());
         current->setDone();
 
-        if (c % 1000 == 0)
-            lib::printendl("C :: ", c);
+        if (m_infos.state_selected % 1000 == 0)
+            lib::printendl("C :: ", m_infos.state_selected);
 
         if (*current == *m_goal)
         {
+            m_infos.max_state_memory = m_list.size();
             lib::printendl(BOLD, GREEN, "----- WIN -----");
-            lib::printendl("C :: ", c);
+            lib::printendl("C :: ", m_infos.state_selected);
             current->print();
+
+            generate_steps(current, m_infos.steps, m_infos.number_steps);
+            lib::printendl("STEPS :: ", m_infos.number_steps);
+            //print_steps(m_steps);
             return (0);
         }
         else
