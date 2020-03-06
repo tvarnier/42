@@ -34,6 +34,8 @@ void            Puzzle::reset() {
     m_infos.max_state_memory = 0;
     m_infos.number_steps = 0;
     m_infos.initalize = false;
+    m_infos.length = 0;
+    m_infos.size = 0;
 }
 
 // ----- Encapsulation ----- //
@@ -63,6 +65,9 @@ int             Puzzle::getMaxStateInMemory() const { return (m_infos.max_state_
 int             Puzzle::getNumberSteps() const { return (m_infos.number_steps); }
 
 std::list<State*>   Puzzle::getSteps() const { return (m_infos.steps); }
+
+int             Puzzle::getLength() const { return (m_infos.length); }
+int             Puzzle::getSize() const { return (m_infos.size); }
 
 bool            Puzzle::isInitialized() const { return (m_infos.initalize); }
 

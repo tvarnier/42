@@ -57,16 +57,16 @@ int     Puzzle::generate_successors(const State *current)
     int     zero_position(current->getZeroPosition());
 
     // Up
-    if (zero_position >= State::length)
-        manage_sucessors(current, -State::length);
+    if (zero_position >= m_infos.length)
+        manage_sucessors(current, -m_infos.length);
     // Down
-    if (zero_position / State::length < State::length - 1)
-        manage_sucessors(current, +State::length);
+    if (zero_position / m_infos.length < m_infos.length - 1)
+        manage_sucessors(current, +m_infos.length);
     // Left
-    if (zero_position % State::length > 0)
+    if (zero_position % m_infos.length > 0)
         manage_sucessors(current, -1);
     // Right
-    if (zero_position % State::length < State::length - 1)
+    if (zero_position % m_infos.length < m_infos.length - 1)
         manage_sucessors(current, +1);
     return (0);
 }

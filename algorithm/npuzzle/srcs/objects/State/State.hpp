@@ -6,9 +6,6 @@
 class State
 {
 	public :
-		static int	length;
-		static int	size;
-
 		State();
 		State(const State& other);
 		~State();
@@ -21,6 +18,9 @@ class State
 
 		int		*getArray() const;
 		void	setArray(int *array);
+
+		int		getLength() const;
+		void	setLength(const int& length);
 
 		int		getZeroPosition() const;
 		void	setZeroPosition(const int& zero_position);
@@ -44,6 +44,7 @@ class State
 
 	private :
 		int				*m_array;
+		int				m_length;
 		int				m_zeroPosition;
 		int				m_score;
 		int				m_nbrMoves;

@@ -9,13 +9,10 @@ int		main(int ac, char **av)
 	if (puzzle.parseOptions(ac, av))
 		return (1);
 
-	/*puzzle.setAlgorithm(A_STAR);
-	puzzle.setHeuristic(H_MANHATTAN);*/
-
 	if (puzzle.init())
 		return (1);
 
-	lib::printendl("\n:: Length = ", State::length, "\n");
+	lib::printendl("\n:: Length = ", puzzle.getLength(), "\n");
 
 	lib::printendl(BOLD, "=====  Start =====");
 	puzzle.getStart()->print();

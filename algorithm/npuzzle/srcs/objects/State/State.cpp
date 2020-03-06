@@ -1,16 +1,13 @@
 #include "State.hpp"
 
-int     State::length = 0;
-int     State::size = 0;
-
 // ----- Constructors ----- //
 
-State::State() : m_array(new int[size]), m_zeroPosition(-1), m_score(-1), m_nbrMoves(0), m_hash(), m_parent(nullptr), m_done(false)
+State::State() : m_array(new int[0]), m_length(-1), m_zeroPosition(-1), m_score(-1), m_nbrMoves(0), m_hash(), m_parent(nullptr), m_done(false)
 {}
-State::State(const State& other) : m_zeroPosition(other.m_zeroPosition), m_score(other.m_score), m_nbrMoves(other.m_nbrMoves), m_hash(other.m_hash), m_parent(other.m_parent), m_done(other.m_done)
+State::State(const State& other) : m_length(other.m_length), m_zeroPosition(other.m_zeroPosition), m_score(other.m_score), m_nbrMoves(other.m_nbrMoves), m_hash(other.m_hash), m_parent(other.m_parent), m_done(other.m_done)
 {
-    m_array = new int[size];
-    copy(other.m_array, other.m_array + size, m_array);
+    m_array = new int[other.m_length * other.m_length];
+    copy(other.m_array, other.m_array + other.m_length * other.m_length, m_array);
 }
 
 State::~State() { delete (m_array); }
@@ -19,6 +16,9 @@ State::~State() { delete (m_array); }
 
 int		*State::getArray() const { return (m_array); }
 void	State::setArray(int *array) { delete (m_array); m_array = array; }
+
+int		State::getLength() const { return (m_length); }
+void	State::setLength(const int& length) { m_length = length; }
 
 int		State::getZeroPosition() const { return (m_zeroPosition); }
 void	State::setZeroPosition(const int& zero_position) { m_zeroPosition = zero_position; }
@@ -57,13 +57,14 @@ void	State::setDone() { m_done = true; }
 
 State   &State::operator=(const State& other)
 {
+	m_length = other.m_length;
     m_zeroPosition = other.m_zeroPosition;
     m_score = other.m_score;
     m_nbrMoves = other.m_nbrMoves;
 	m_hash = other.m_hash;
     m_parent = other.m_parent;
 	m_done = other.m_done;
-    copy(other.m_array, other.m_array + size, m_array);
+    copy(other.m_array, other.m_array + other.m_length * other.m_length, m_array);
     return (*this);
 }
 
@@ -94,13 +95,13 @@ std::string State::array_to_string() const
 	std::string	        s;
 	std::ostringstream	s_flux;
 
-	for (int i = 0; i < State::size; ++i)
+	for (int i = 0; i < m_length * m_length; ++i)
 	{
 		if (m_array[i])
 				s_flux << m_array[i] << " ";
 		else
 			s_flux << "_ ";
-		if (i % State::length == State::length - 1)
+		if (i % m_length == m_length - 1)
 			s_flux << "\n";
 	}
 	s = s_flux.str();
@@ -113,7 +114,7 @@ size_t	State::hashArray()
 	string				s;
 	ostringstream		os;
 
-	for (int i = 0; i < State::size; ++i)
+	for (int i = 0; i < m_length * m_length; ++i)
 		os << m_array[i];
 
 	s = os.str();
@@ -128,12 +129,12 @@ int		State::scoreManhattan(const int *goal)
 	int		j;
 	int		score(0);
 
-	for(i = 0; i < State::size; ++i)
+	for(i = 0; i < m_length * m_length; ++i)
 		if (m_array[i] != 0)
 		{
-			for (j = 0; m_array[i] != goal[j] && j < State::size; ++j);
-			score += std::abs((j / State::length) - (i / State::length)) * 2;
-			score += std::abs((j % State::length) - (i % State::length)) * 2;
+			for (j = 0; m_array[i] != goal[j] && j < m_length * m_length; ++j);
+			score += std::abs((j / m_length) - (i / m_length)) * 2;
+			score += std::abs((j % m_length) - (i % m_length)) * 2;
 		}
 	return (score);
 }
@@ -144,11 +145,11 @@ int		State::scoreEuclidean(const int *goal)
 	int		j;
 	int		score(0);
 
-	for(i = 0; i < State::size; ++i)
+	for(i = 0; i < m_length * m_length; ++i)
 		if (m_array[i] != 0)
 		{
-			for (j = 0; m_array[i] != goal[j] && j < State::size; ++j);
-			score += std::sqrt(std::pow(((double)(i / State::length) - (double)(j / State::length)), 2.0) + std::pow(((double)(i % State::length) - (double)(j % State::length)), 2.0)) * 2.0;
+			for (j = 0; m_array[i] != goal[j] && j < m_length * m_length; ++j);
+			score += std::sqrt(std::pow(((double)(i / m_length) - (double)(j / m_length)), 2.0) + std::pow(((double)(i % m_length) - (double)(j % m_length)), 2.0)) * 2.0;
 		}
 	return (score);
 }
@@ -161,16 +162,16 @@ int 	State::scoreMisplaced(const int *goal)
 	int		col;
 	int		score(0);
 
-	for(i = 0; i < State::size; ++i)
+	for(i = 0; i < m_length * m_length; ++i)
 		if (m_array[i] != 0)
 		{
-			row = i / State::length;
-			col = i % State::length;
+			row = i / m_length;
+			col = i % m_length;
 
-			for (j = 0; j < State::length; ++j) if (goal[row * State::length + j] == m_array[i]) break ;
-			if (j == State::length) score += 2;
-			for (j = 0; j < State::length; ++j) if (goal[j * State::length + col] == m_array[i]) break ;
-			if (j == State::length) score += 2;
+			for (j = 0; j < m_length; ++j) if (goal[row * m_length + j] == m_array[i]) break ;
+			if (j == m_length) score += 2;
+			for (j = 0; j < m_length; ++j) if (goal[j * m_length + col] == m_array[i]) break ;
+			if (j == m_length) score += 2;
 		}
 	return (score);
 }

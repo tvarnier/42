@@ -10,6 +10,7 @@ struct compare {
 enum e_goal {
     T_SNAIL,
     T_ORDERED,
+    T_RANDOM,
     T_FILE
 };
 
@@ -30,6 +31,8 @@ typedef struct s_puzzleInfos {
     int                 number_steps;
     std::list<State*>   steps;
     bool                initalize;
+    int                 length;
+    int                 size;
 } puzzleInfos;
 
 class Puzzle
@@ -73,6 +76,9 @@ class Puzzle
 
         std::list<State*>   getSteps() const;
 
+        int             getLength() const;
+        int             getSize() const;
+
         bool            isInitialized() const;
 
         State           *getStart() const;
@@ -95,8 +101,9 @@ class Puzzle
         int     init_start(const int *goal, int& line_count);
         int     *generate_start_array(int *start, const int *goal);
         int     init_goal();
-        int     init_goal_snail(int *goal);
-        int     init_goal_ordered(int *goal);
+        void    init_goal_snail(int *goal);
+        void    init_goal_ordered(int *goal);
+        void    init_goal_random(int *goal);
         int     init_goal_file(int *goal);
 
         int     generate_successors(const State *current);
