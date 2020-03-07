@@ -55,19 +55,19 @@ void    swap_values(int *start, int& zero, int& last, const int& where)
 ** Generate Random Start Array
 **
 ** @param start[in, out]    : Start array to modify (already allocated)
-** @param goal[in]          : Base the generate from Goal to generate a solvable solution
+** @param target[in]        : Base the generate from Target to generate a solvable solution
 **
 ** @return                  : Generated Start Array
 *****/
-int     *Puzzle::generate_start_array(int *start, const int *goal)
+int     *Puzzle::generate_start_array(int *start, const int *target)
 {
     int     zero(0);
     int     possibilities(0);
     int     rdm;
     int     last(0);
 
-    for (int i = 0; i < m_infos.size; ++i) start[i] = goal[i];                                          // Copy Content of Goal to Start
-    zero = m_goal->getZeroPosition();                                                                   // Get zero position from Goal's zero position
+    for (int i = 0; i < m_infos.size; ++i) start[i] = target[i];                                        // Copy Content of Target to Start
+    zero = m_target->getZeroPosition();                                                                 // Get zero position from Target's zero position
 
     srand (time(NULL));                                                                                 // Inialize Rand
 

@@ -19,8 +19,8 @@ static int  print_program_usage()
                             "                       <GENERATION_LENGTH> must be greater than 2 and smaller or equal than 256\n",
                             "                       <GENERATION_ITERATION> to determine the number of iterations used in generation, default 10000\n",
                             "  -tgt <TARGET_TYPE or TARGET_FILE>, --target <TARGET_TYPE or TARGET_FILE>\n",
-                            "                       <TARGET_TYPE> to define goal (snail, ordered, random), default snail\n",
-                            "                       <TARGET_FILE> to define goal with a file\n",
+                            "                       <TARGET_TYPE> to define target (snail, ordered, random), default snail\n",
+                            "                       <TARGET_FILE> to define target with a file\n",
                             "  -visu, --visualizer   show animated path"));
 }
 
@@ -34,12 +34,12 @@ static int  print_program_usage()
 static bool is_number(char *s) { int i; for (i = 0; s[i]; ++i) if (!std::isdigit(s[i])) return (false); return (i > 0); }
 
 /*****
-** Print Usage of the program
+** Parse arguments of the program and Modify Puzzle informations
 **
 ** @param ac[in]    : Number of argument of the program
 ** @param av[in]    : Argument of the program
 **
-** @return          : Return 1 if 
+** @return          : Return 1 if Error in parsing, Else 0
 *****/
 int     Puzzle::parseOptions(const int& ac, char **av)
 {
