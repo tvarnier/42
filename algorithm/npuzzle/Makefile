@@ -1,7 +1,7 @@
 NAME		= npuzzle
 
 CC			= g++-9
-FLAGS		= -g -Wall -Wextra -Werror
+FLAGS		= -g -Wall -Wextra -Werror -O3
 LIB			= lib/lib.a
 
 INCLUDES	= ./includes/npuzzle.hpp
