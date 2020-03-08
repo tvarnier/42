@@ -97,13 +97,22 @@ std::string State::array_to_string() const
 	std::string	        s;
 	std::ostringstream	s_flux;
 
-	s_flux << std::setw(2) << std::setfill('0');
+	int		nbr_digit(1);
+	int		div(1);
+	while (m_length * m_length / div >= 10)
+	{
+		div *= 10;
+		nbr_digit++;
+	}
+	s.resize(m_length * m_length * (nbr_digit + 1) + 1);
+
+	s_flux << setfill('0');
 	for (int i = 0; i < m_length * m_length; ++i)
 	{
 		if (m_array[i])
-				s_flux << m_array[i] << " ";
+				s_flux << setw(nbr_digit) << m_array[i] << " ";
 		else
-			s_flux << "_ ";
+			s_flux << std::string(nbr_digit, '_') << " ";
 		if (i % m_length == m_length - 1)
 			s_flux << "\n";
 	}

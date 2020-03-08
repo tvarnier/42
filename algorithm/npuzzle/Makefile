@@ -1,6 +1,6 @@
 NAME		= npuzzle
 
-CC			= ~/.brew/bin/g++-9
+CC			= g++-9
 FLAGS		= -g -Wall -Wextra -Werror
 LIB			= lib/lib.a
 
