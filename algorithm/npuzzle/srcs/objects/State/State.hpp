@@ -14,6 +14,8 @@ class State
 
 		void	swapZeroPosition(const int& piece);	// Swap any piece with Zero
 
+		std::string		array_to_string() const;	// Get string to print array
+
 		// ----- Encapsulation ----- //
 
 		int		*getArray() const;
@@ -54,7 +56,6 @@ class State
 		State			*m_parent;			// Parent of the State
 		bool			m_done;				// Is State analized
 
-		std::string		array_to_string() const;	// Get string to print array
 		size_t			hashArray();				// Get Hash from Array
 
 		// ----- Heuristic ----- //

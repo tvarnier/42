@@ -24,18 +24,18 @@ int		State::getZeroPosition() const { return (m_zeroPosition); }
 void	State::setZeroPosition(const int& zero_position) { m_zeroPosition = zero_position; }
 
 int		State::getScore() const { return (m_score); }
-void	State::setScore(const int *target, const e_heuristic& h, const e_algorithm& a)
+void	State::setScore(const int *goal, const e_heuristic& h, const e_algorithm& a)
 {
 	m_score = 0;
 
 	if (a == A_STAR || a == A_UNIFORM)
 	{
 		if (h == H_MANHATTAN)
-			m_score += scoreManhattan(target);
+			m_score += scoreManhattan(goal);
 		else if (h == H_EUCLIDEAN)
-			m_score += scoreEuclidean(target);
+			m_score += scoreEuclidean(goal);
 		else if (h == H_MISPLACED)
-			m_score += scoreMisplaced(target);
+			m_score += scoreMisplaced(goal);
 	}
 	if (a == A_STAR || a == A_GREEDY)
 		m_score += m_nbrMoves;
@@ -59,7 +59,7 @@ State   &State::operator=(const State& other)
 {
 	m_length = other.m_length;
     m_zeroPosition = other.m_zeroPosition;
-    m_score = other.m_score;
+	m_score = other.m_score;
     m_nbrMoves = other.m_nbrMoves;
 	m_hash = other.m_hash;
     m_parent = other.m_parent;
@@ -84,8 +84,6 @@ void	State::swapZeroPosition(const int& piece)
 	m_array[piece] = 0;
 	m_zeroPosition = piece;
 }
-
-// ----- Private functions ----- //
 
 /*****
 ** Convert Array of Int into string (to print)
@@ -120,6 +118,8 @@ std::string State::array_to_string() const
 	return (s);
 }
 
+// ----- Private functions ----- //
+
 /*****
 ** Hash array into size_t
 **
@@ -140,7 +140,7 @@ size_t	State::hashArray()
 
 // ----- Heuristics ----- //
 
-int		State::scoreManhattan(const int *target)
+int		State::scoreManhattan(const int *goal)
 {
 	int		i;
 	int		j;
@@ -149,14 +149,14 @@ int		State::scoreManhattan(const int *target)
 	for(i = 0; i < m_length * m_length; ++i)
 		if (m_array[i] != 0)
 		{
-			for (j = 0; m_array[i] != target[j] && j < m_length * m_length; ++j);
+			for (j = 0; m_array[i] != goal[j] && j < m_length * m_length; ++j);
 			score += std::abs((j / m_length) - (i / m_length)) * 2;
 			score += std::abs((j % m_length) - (i % m_length)) * 2;
 		}
 	return (score);
 }
 
-int		State::scoreEuclidean(const int *target)
+int		State::scoreEuclidean(const int *goal)
 {
 	int		i;
 	int		j;
@@ -165,13 +165,13 @@ int		State::scoreEuclidean(const int *target)
 	for(i = 0; i < m_length * m_length; ++i)
 		if (m_array[i] != 0)
 		{
-			for (j = 0; m_array[i] != target[j] && j < m_length * m_length; ++j);
+			for (j = 0; m_array[i] != goal[j] && j < m_length * m_length; ++j);
 			score += std::sqrt(std::pow(((double)(i / m_length) - (double)(j / m_length)), 2.0) + std::pow(((double)(i % m_length) - (double)(j % m_length)), 2.0)) * 2.0;
 		}
 	return (score);
 }
 
-int 	State::scoreMisplaced(const int *target)
+int 	State::scoreMisplaced(const int *goal)
 {
 	int		i;
 	int		j;
@@ -185,9 +185,9 @@ int 	State::scoreMisplaced(const int *target)
 			row = i / m_length;
 			col = i % m_length;
 
-			for (j = 0; j < m_length; ++j) if (target[row * m_length + j] == m_array[i]) break ;
+			for (j = 0; j < m_length; ++j) if (goal[row * m_length + j] == m_array[i]) break ;
 			if (j == m_length) score += 2;
-			for (j = 0; j < m_length; ++j) if (target[j * m_length + col] == m_array[i]) break ;
+			for (j = 0; j < m_length; ++j) if (goal[j * m_length + col] == m_array[i]) break ;
 			if (j == m_length) score += 2;
 		}
 	return (score);

@@ -1,4 +1,4 @@
-#include "puzzle.hpp"
+#include "Puzzle.hpp"
 
 /*****
 ** Create State from Current State
@@ -119,7 +119,11 @@ int         Puzzle::solve()
         ++m_infos.state_selected;           // Add one to counter of State selected
         current = *(m_queue.begin());       // Get first element of Queue (smaller score)
         m_queue.erase(m_queue.begin());     // Remove first element of Queue
-        current->setDone();                 // Set State as analized 
+        current->setDone();                 // Set State as analized
+
+        /*lib::printendl(BOLD, "===== CURRENT =====");
+        current->print();
+        lib::printendl(" :: ", current->getScore());*/
 
         if (*current == *m_target)          // If State selected is Target State, Win
         {
@@ -130,6 +134,9 @@ int         Puzzle::solve()
 
             generate_steps(current, m_infos.steps, m_infos.number_steps);   // Get Steps to get from Start to Target
             lib::printendl("STEPS :: ", m_infos.number_steps);
+
+            if (m_options.visualizer)
+                launchVisualizer();
             return (0);
         }
         else                                // Else if isn't Target, generate Successors

@@ -90,3 +90,12 @@ State           *Puzzle::getTarget() const { return (m_target); }
 std::set<State*, compare> Puzzle::getQueue() const { return (m_queue); }
 
 std::unordered_map<size_t, State*> Puzzle::getList() const { return (m_list); }
+
+// ----- Private Functions ----- //
+
+int             Puzzle::launchVisualizer()
+{
+    Visualizer  v(m_infos);
+
+    return (v.launch());
+}

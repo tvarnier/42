@@ -3,50 +3,6 @@
 
 # include "npuzzle.hpp"
 
-/*****
-** Compare function for Queue
-*****/
-struct compare {
-    bool operator() (State *a, State *b) const;
-};
-
-/*****
-** Target Type Enumeration
-*****/
-enum e_target {
-    T_SNAIL,
-    T_ORDERED,
-    T_RANDOM,
-    T_FILE
-};
-
-/*****
-** Options structure
-*****/
-typedef struct s_puzzleOptions {
-    e_algorithm algorithm;              // Algorithm selected
-    e_heuristic heuristic;              // Heuristic selected
-    bool        generation;             // Is Generated
-    int         generation_length;      // Generation length
-    int         generation_iteration;   // Generation iteration
-    e_target    target_type;            // Type of Target
-    std::string target_file;            // File if Target Type = T_FILE
-    bool        visualizer;             // Is visualized
-} puzzleOptions;
-
-/*****
-** Informations structure
-*****/
-typedef struct s_puzzleInfos {
-    int                 state_selected;     // Number of state selected
-    int                 max_state_memory;   // Number of state maximum in memory
-    int                 number_steps;       // Number of steps to get from Start to Target
-    std::list<State*>   steps;              // List of steps to get from Start to Target
-    bool                initalize;          // Is Puzzle initialized
-    int                 length;             // Length of Puzzle
-    int                 size;               // Size of Puzzle (length * length)
-} puzzleInfos;
-
 class Puzzle
 {
     public :
@@ -120,6 +76,8 @@ class Puzzle
 
         void    generate_successors(const State *current);              // Try to Create Successor in all 4 directions
         void    manage_sucessor(const State *current, int direction);   // Create Successor State and Manage it
+
+        int     launchVisualizer();
 };
 
 # endif

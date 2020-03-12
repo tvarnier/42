@@ -14,10 +14,12 @@ OBJ			= State/State.cpp \
 			  Puzzle/Puzzle_init.cpp \
 			  Puzzle/Puzzle_generate_start_array.cpp \
 			  Puzzle/Puzzle_isSolvable.cpp \
-			  Puzzle/Puzzle_solve.cpp
+			  Puzzle/Puzzle_solve.cpp \
+			  Visualizer/Visualizer.cpp
 OBJ_DIR		= objects/
 OBJ_SUBDIR	= objects/State \
-			  objects/Puzzle
+			  objects/Puzzle \
+			  objects/Visualizer
 
 SRC_PATH	= ./srcs/
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
@@ -35,7 +37,7 @@ BIN_SUBDIR  += $(addprefix $(BIN_PATH), $(OBJ_SUBDIR))
 all: $(NAME)
 
 $(NAME): $(LIB) $(BIN_PATH) $(BIN_SUBDIR) $(BINS)
-	$(CC) $(FLAGS) $(BINS) $(LIB) -o $@
+	$(CC) $(FLAGS) $(BINS) $(LIB) -lncurses -o $@
 
 $(BIN_PATH):
 	@ mkdir $@
