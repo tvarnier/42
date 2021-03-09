@@ -45,12 +45,11 @@ void    Visualizer::init()
     m_height = size.ws_row;
 
     initscr();
-    noecho();
-    cbreak();
-    nodelay(stdscr, TRUE);
 
     m_win = newwin(m_height, m_width, 0, 0);
-    refresh();
+    noecho();
+    cbreak();
+    nodelay(m_win, TRUE);
     box(m_win, 0, 0);
     wrefresh(m_win);
 }
@@ -79,12 +78,10 @@ void    Visualizer::key_hook()
 {
     int     key;
 
-    if ((key = getch()) == ERR)
+    if ((key = wgetch(m_win)) == ERR)
         return ;
 
-    wprintw(m_win, "HELLO");
-
-    wprintw(m_win, " :: %d ", key);
+    wprintw(m_win, " :: %c ", key);
     wrefresh(m_win);
     switch (key)
     {
