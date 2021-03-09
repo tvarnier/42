@@ -1,9 +1,0 @@
-		[[ INCLUDES ]]
-
-<iostream> // Flux library
-<fstream>  // File library
-<string>   // String library
-<cmath>    // Math library (pow, sqrt, sin, floor, ...)
-<cctype>   // Checks and Transform library (isalpha, isdigit, tolower, ...)
-<ctime>    // Time Library (time)
-<cstdlib>  // Random Library (srand, rand)
