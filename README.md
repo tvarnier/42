@@ -11,7 +11,7 @@
  * **[fillit](https://github.com/tvarnier/fillit)** | C | *Algorithme de backtracking*
  * **[filler](https://github.com/tvarnier/filler)** | C | *IA de conquête de territoire utilisant une map de chaleur*
  * **[lem_in](https://github.com/tvarnier/lem_in)** | C | *Algorithme de Pathfinding d'une fourmilière*
- * **[npuzzle](https://github.com/tvarnier/npuzzle)** | C++ | **
+ * **[npuzzle](https://github.com/tvarnier/npuzzle)** | C++ | *Resolveur de jeu de taquin, utilisation du A**
  * **[rubik](https://github.com/tvarnier/rubik)** | C++ | **
 
 ### MACHINE LEARNING
